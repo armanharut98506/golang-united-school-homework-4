@@ -3,6 +3,7 @@ package string_sum
 import (
 	"errors"
 	"regexp"
+	"strconv"
 )
 
 //use these errors as appropriate, wrapping them with fmt.Errorf function
