@@ -1,4 +1,4 @@
-package string_sum
+package main
 
 import (
 	"fmt"
@@ -28,6 +28,9 @@ var (
 
 func StringSum(input string) (output string, err error) {
 	if input == "" {
+		fmt.Println("input is empty")
+		i := fmt.Errorf(errorEmptyInput.Error())
+		fmt.Println("", i)
 		return "", fmt.Errorf(errorEmptyInput.Error())
 	}
 
@@ -41,7 +44,8 @@ func StringSum(input string) (output string, err error) {
 		return "", fmt.Errorf(errorNotTwoOperands.Error())
 	} else if len(notValid) > 0 {
 		_, err := strconv.Atoi(notValid[0])
-		err = fmt.Errorf(err.Error())
+		err = fmt.Errorf("-->%q", err)
+		fmt.Println(notValid, err.Error())
 		return "", err
 	}
 
@@ -49,4 +53,9 @@ func StringSum(input string) (output string, err error) {
 	num2, _ := strconv.Atoi(nums[1])
 
 	return strconv.Itoa(num1 + num2), nil
+}
+
+func main() {
+	input := ""
+	fmt.Println(StringSum(input))
 }
