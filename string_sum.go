@@ -37,7 +37,7 @@ func StringSum(input string) (output string, err error) {
 	reNotValid := regexp.MustCompile("[a-zA-Z]")
 	notValid := reNotValid.FindAllString(input, -1)
 
-	if len(nums) > 2 {
+	if len(nums) != 2 {
 		return "", fmt.Errorf(errorNotTwoOperands.Error())
 	} else if len(notValid) > 0 {
 		_, err := strconv.Atoi(notValid[0])
