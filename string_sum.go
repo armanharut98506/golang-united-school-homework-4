@@ -32,7 +32,10 @@ func StringSum(input string) (output string, err error) {
 	reNums := regexp.MustCompile("(\\+|-)?\\d+")	
 	nums := reNums.FindAllString(input, -1)
 
-	if len(nums) > 2 {
+	reNotValid := regexp.MustCompile("[^(\\d|\\+|\\-|\\W)]")
+	notValid := reNotValid.FindAllString(input, -1)
+
+	if len(nums) > 2 || len(notValid) > 0 {
 		return "", errorNotTwoOperands
 	}
 
