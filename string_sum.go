@@ -39,5 +39,5 @@ func StringSum(input string) (output string, err error) {
 	num1, _ := strconv.Atoi(nums[0])
 	num2, _ := strconv.Atoi(nums[1])
 
-	return num1 + num2
+	return num1 + num2, nil
 }
