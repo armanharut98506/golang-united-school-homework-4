@@ -26,14 +26,14 @@ var (
 
 func StringSum(input string) (output string, err error) {
 	if input == "" {
-		return errorEmptyInput
+		return "", errorEmptyInput
 	}
 
 	reNums := regexp.MustCompile("(\\+|-)?\\d+")	
 	nums := reNums.FindAllString(input, -1)
 
 	if len(nums) > 2 {
-		return errorNotTwoOperands
+		return "", errorNotTwoOperands
 	}
 
 	num1, _ := strconv.Atoi(nums[0])
