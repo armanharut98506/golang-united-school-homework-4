@@ -28,7 +28,7 @@ var (
 
 func StringSum(input string) (output string, err error) {
 	if input == "" {
-		return "", fmt.Errorf(errorEmptyInput.Error())
+		return "", fmt.Errorf("%w", errorEmptyInput)
 	}
 
 	reNums := regexp.MustCompile("(\\+|-)?\\d+")	
@@ -38,10 +38,10 @@ func StringSum(input string) (output string, err error) {
 	notValid := reNotValid.FindAllString(input, -1)
 
 	if len(nums) != 2 {
-		return "", fmt.Errorf(errorNotTwoOperands.Error())
+		return "", fmt.Errorf("%w", errorNotTwoOperands)
 	} else if len(notValid) > 0 {
 		_, err := strconv.Atoi(notValid[0])
-		err = fmt.Errorf(err.Error())
+		err = fmt.Errorf("%w", err)
 		return "", err
 	}
 
